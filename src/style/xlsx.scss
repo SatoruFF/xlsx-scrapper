@@ -2,25 +2,33 @@
 .xlsx-wrapper {
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: #f0f0f0;
     display: flex;
     align-items: center;
     justify-content: center;
     .xlsx-content {
         background-color: white;
-        width: 100%;
-        height: 100%;
-        //border-radius: 15px;
+        width: 70%;
+        height: 70%;
+        max-width: 1400px;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
+        border-radius: 10px;
         padding: 10px;
         text-align: center;
-        justify-content: space-around;
+        justify-content: space-evenly;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        .xlsx-txt {
+            max-width: 60%;
+            align-self: center;
+        }
         .xlsx-btn {
             align-self: center;
             max-width: 100px;
+        }
+        .first-btn {
+            margin-left: 15px;
         }
         .xlsx-input {
             align-self: center;
@@ -40,6 +48,24 @@
             align-self: center;
             flex-direction: column;
             width: 80%;
+        }
+        .btn-group {
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .xlsx-wrapper {
+        height: auto;
+        .xlsx-content {
+            height: auto;
+            .xlsx-btn {
+                margin-top: 10px;
+            }
         }
     }
 }

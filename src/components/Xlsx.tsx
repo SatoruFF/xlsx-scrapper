@@ -1,19 +1,20 @@
 import React, { useState } from "react";
-import '../style/xlsx.scss';
+import "../style/xlsx.scss";
 import { Typography, Button, message } from "antd";
 const { Paragraph, Title } = Typography;
 import { useDropzone } from "react-dropzone";
 import * as XLSX from "xlsx";
 
-
 const Xlsx = ({ setVisible }: any) => {
-  type Any = any
+  type Any = any;
   const [file, setFile]: any = useState(null);
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
     accept: {
-        'application/vnd.ms-excel': ['.xls'],
-        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['.xlsx']
-      } as Any,
+      "application/vnd.ms-excel": [".xls"],
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": [
+        ".xlsx",
+      ],
+    } as Any,
     maxFiles: 1,
     onDrop: (acceptedFiles: any) => {
       setFile(acceptedFiles[0]);
@@ -21,7 +22,6 @@ const Xlsx = ({ setVisible }: any) => {
   });
 
   const checker = () => {
-
     if (!file) {
       message.error("Файл не выбран!");
       return;
@@ -63,16 +63,19 @@ const Xlsx = ({ setVisible }: any) => {
   return (
     <div className="xlsx-wrapper">
       <div className="xlsx-content">
-        <Title>
+        <Title className="xlsx-txt">
           Проверка эксель файла
           <Paragraph>
             Кнопка проверить, по нажатию проверяет действительно ли выбран файл
             с расширением .xlsx При правильном расширении вывести пользователю
             сообщение со значением ячеек А1-А5 через запятую
           </Paragraph>
-          <Button className="xlsx-btn" onClick={() => setVisible(true)}>
-            snils
-          </Button>
+          <div className="btn-group">
+            <Paragraph>Перейти на страницу проверки снилс:</Paragraph>
+            <Button type="default" className="xlsx-btn first-btn" onClick={() => setVisible(true)}>
+              snils
+            </Button>
+          </div>
         </Title>
 
         <div className="drag">

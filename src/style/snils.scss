@@ -1,24 +1,25 @@
 .snils-wrapper {
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     .snils-content {
         background-color: white;
-        width: 100%;
-        height: 100%;
+        width: 70%;
+        height: 70%;
+        max-width: 1400px;
+        border-radius: 10px;
         color: black;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        //border-radius: 15px;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
         padding: 10px;
         text-align: center;
-        justify-content: space-around;
+        justify-content: space-evenly;
         .snils-input {
             max-width: 70%;
             align-self: center;
@@ -26,6 +27,28 @@
         .snils-btn {
             max-width: 100px;
             align-self: center;
+        }
+        .btn-group {
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .first-btn {
+            margin-left: 15px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 920px) {
+    .snils-wrapper {
+        height: auto;
+        .snils-content {
+            height: auto;
+            .snils-btn {
+                margin-top: 10px;
+            }
         }
     }
 }

@@ -24,12 +24,15 @@ const Snils = ({ setVisible }: any) => {
   return (
     <div className="snils-wrapper">
       <div className="snils-content">
-        <Title>
+        <Title className="txt">
           Проверка снилса
-          <Paragraph>XXX-XXX-XXX XX</Paragraph>
-          <Button className="snils-btn" onClick={() => setVisible(false)}>
-            Excel
-          </Button>
+          <Paragraph className="txt">XXX-XXX-XXX XX</Paragraph>
+          <div className="btn-group">
+            <Paragraph>Перейти на страницу проверки эксель файла:</Paragraph>
+            <Button className="snils-btn first-btn" onClick={() => setVisible(false)}>
+              Excel
+            </Button>
+          </div>
         </Title>
 
         <Input
