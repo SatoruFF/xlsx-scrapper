@@ -64,12 +64,12 @@ const Xlsx = ({ setVisible }: any) => {
       <div className="xlsx-content">
         <Title className="xlsx-txt">
           Проверка эксель файла
-          <Paragraph>
+          <Paragraph className="query-disabled">
             При правильном расширении вывести пользователю
             сообщение со значением ячеек А1-А5 через запятую
           </Paragraph>
           <div className="btn-group">
-            <Paragraph>Перейти на страницу проверки снилс:</Paragraph>
+            <Paragraph className="query-disabled">Перейти на страницу проверки снилс:</Paragraph>
             <Button type="default" className="xlsx-btn first-btn" onClick={() => setVisible(true)}>
               snils
             </Button>
