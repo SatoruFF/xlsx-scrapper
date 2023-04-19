@@ -37,24 +37,23 @@ const Xlsx = ({ setVisible }: any) => {
       const workbook = XLSX.read(arrayBuffer, { type: "array" });
       const sheetName = workbook.SheetNames[0];
       const worksheet: any = workbook.Sheets[sheetName];
-      const range = XLSX.utils.decode_range(worksheet["!ref"]);
       let values = "";
-      for (let R = range.s.r; R <= range.e.r; ++R) {
-        for (let C = range.s.c; C <= range.e.c; ++C) {
-          const cellAddress = XLSX.utils.encode_cell({ r: R, c: C });
-          const cellValue = worksheet[cellAddress]?.v;
-          if (cellValue) {
-            if (values) {
-              values += ", ";
-            }
-            values += cellValue;
+      let count = 0;
+      for (let R = 0; R < 5; ++R) {
+        const cellAddress = XLSX.utils.encode_cell({ r: R, c: 0 });
+        const cellValue = worksheet[cellAddress]?.v;
+        if (cellValue) {
+          if (values) {
+            values += ", ";
           }
+          values += cellValue.trim();
+          count++;
         }
       }
       if (values) {
-        message.success(`Значения ячеек A1-A5: ${values}`);
+        message.success(`Первые пять значений в столбце A: ${values}`);
       } else {
-        message.warning("Файл не содержит данных в ячейках A1-A5!");
+        message.warning("Файл не содержит данных в первом столбце!");
       }
     };
     fileReader.readAsArrayBuffer(file);
@@ -66,8 +65,7 @@ const Xlsx = ({ setVisible }: any) => {
         <Title className="xlsx-txt">
           Проверка эксель файла
           <Paragraph>
-            Кнопка проверить, по нажатию проверяет действительно ли выбран файл
-            с расширением .xlsx При правильном расширении вывести пользователю
+            При правильном расширении вывести пользователю
             сообщение со значением ячеек А1-А5 через запятую
           </Paragraph>
           <div className="btn-group">
